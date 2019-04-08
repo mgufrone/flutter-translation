@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translation/translate.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,6 +7,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Translate.instance.setLanguage('id');
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: translate('title')),
     );
   }
 }
@@ -92,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              '${translate('description')}:',
             ),
             Text(
               '$_counter',
